@@ -2,4 +2,6 @@
 <h2>Cloze Constructors</h2>
 <hr>
 
-<p> A backend flashcard application that allows users to create two types of flashcards: Basic &amp; Cloze-Deleted
+<p>A back-end flashcard application that allows users to create two types of flashcards: Basic (front and back arguments) &amp; Cloze-Deleted (partial text/text and cloze arguments)</p>
+
+<p>Card data is stored in a .json file</p>
