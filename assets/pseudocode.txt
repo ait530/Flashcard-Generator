@@ -1,0 +1,9 @@
+1. Create constructors for basic and cloze deleted flashcards.
+
+2. basic constructor should have front and back as arguments while cloze should have text and cloze.  
+
+3. Need to seperate the 2 types of flashcards into two seperate sets and randomize each card.
+
+4. A 'flipCard' command that makes the CLI show the Question and then show the answer.
+
+5. For cloze-deleted, need a 'showText' command that has the CLI show partial text (the question) and after the command, fills the rest of the text (answer).
