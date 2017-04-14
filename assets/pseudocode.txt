@@ -7,3 +7,178 @@
 4. A 'flipCard' command that makes the CLI show the Question and then show the answer.
 
 5. For cloze-deleted, need a 'showText' command that has the CLI show partial text (the question) and after the command, fills the rest of the text (answer).
+
+
+
+SMALL PIECE BY SMALL PIECE
+>2 hours too big for task.
+console.log a variable
+then use a library to create an interface
+recursive callback
+
+
+TOOLS:
+
+Review:
+/////////////////////////////////////////////////////////////////////////////////
+{} = OBJECT
+Set a variable equal to an object and give properties,
+e.g.)
+var dogs = {
+  raining: true   (boolean property)
+  noise: "Woof!"  (string)
+  makeNoise: function() {          (function)
+    if (this.raining === true) {   (condition)
+      console.log(this.noise);
+    }
+  }
+}
+/////////////////////////////////////////////////////////////////////////////////
+DOT NOTATION TO IMPLEMENT FUNCTION
+e.g.)
+dog.makeNoise();
+dogs.raining = true;
+/////////////////////////////////////////////////////////////////////////////////
+CONSTRUCTOR
+A special method for creating and initializing an object created with a class.
+
+function Running(speed, time) {          -'this' refers to function Running
+  this.speed = speed;
+  this.time = time;
+}
+
+                                         -setting new variables and  initializing them with properties 
+var speed = new Running(true, "fast!");    
+var time = new Running(10);
+/////////////////////////////////////////////////////////////////////////////////
+PRINT FUNCTION EXAMPLE 
+this.printStats = function() {
+  console.log("Name: " + this.name + "\nProfession: " + this.profession +
+  "\nGender: " + this.gender + "\nAge: " + this.age + "\nStrength: " +
+  this.strength + "\nHitPoints: " + this.hitpoints);
+  console.log("\n-------------\n");
+};
+/////////////////////////////////////////////////////////////////////////////////
+WHILE LOOP
+The while statement creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement.
+e.g.) 
+while (warrior.isAlive() === true && rogue.isAlive() === true) {
+  // characters deal damage to one another
+  warrior.attack(rogue);
+  rogue.attack(warrior);
+  // prints stats to show changes
+  warrior.printStats();
+  rogue.printStats();
+}
+/////////////////////////////////////////////////////////////////////////////////
+COMMAND LINE ARGUMENTS FOR ANIMAL AND METHOD
+var animal = process.argv[2];
+var method = process.argv[3];
+
+// try calling your chosen animal and method from the terminal example: 'node tamagotchi-this dog letInside'
+
+this[animal][method]();
+/////////////////////////////////////////////////////////////////////////////////
+PROTOTYPE
+The JavaScript prototype property allows you to add new properties to an existing prototype and add new methods to an existing prototype
+function Person(first, last, age, eyecolor) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eyecolor;
+}
+Person.prototype.nationality = "English";
+
+var myFather = new Person("John", "Doe", 50, "blue");
+
+document.getElementById("demo").innerHTML =
+"My father is " + myFather.nationality; 
+
+
+Another e.g.)
+// constructor function used to create programmers objects
+function Programmer(name, position, age, language) {
+  this.name = name;
+  this.position = position;
+  this.age = age;
+  this.language = language;
+}
+
+// creates the printInfo method and applies it to all programmer objects
+Programmer.prototype.printInfo = function() {
+  console.log("Name: " + this.name + "\nPosition: " + this.position +
+  "\nAge: " + this.age + "\nLanguages: " + this.language);
+};
+
+// new programmer object is initialized to bob and is provided with the variables
+// necessary to create all of the properties
+var bob = new Programmer("Bob Smith", "Supreme CodeMaster", 33, "JavaScript");
+
+// calls the printInfo method for bob to print all of his information to the console
+bob.printInfo();
+/////////////////////////////////////////////////////////////////////////////////
+RECURSION
+An act of a function calling itself. Recursion is used to solve problems that contain smaller sub-problems. A recursive function can receive two inputs: a base case (ends recursion) or a recursive case (continues recursion).
+
+// var doSomething = function() {
+//   console.log("I did something");
+//   doSomething(); 
+// }
+
+var count = 1;
+var doSomething = function() {
+
+  if (count < 5) {
+    console.log("I did something " + count + " time(s)");
+
+    count++;
+    doSomething();
+  }
+}
+
+doSomething();
+/////////////////////////////////////////////////////////////////////////////////
+EXPORTS
+
+(mainjs)
+var Person = require("./person.js");
+
+console.log(Person);
+
+var jack = new Person("Joe", "male");
+var jill = new Person("Jill", "female");
+
+jack.addPet("Fido", "dog", "bark!");
+jack.addPet("Garfield", "cat", "meow!");
+jill.addPet("Simba", "tiger", "roar!");
+
+console.log(jack.pets);
+console.log(jill.pets);
+
+(person.js)
+var Pet = require("./pet.js");
+
+var Person = function(name, gender) {
+  this.name = name;
+  this.gender = gender;
+  this.pets = [];
+  this.addPet = function(name, type, noise) {
+    pet = new Pet(name, type, noise);
+    this.pets.push(pet);
+  }
+}
+
+module.exports = Person;
+
+
+(pet.js)
+var Pet = function(type, name, noise) {
+  this.type = type;
+  this.name = name;
+  this.noise = noise;
+  this.makeNoise = function() {
+    console.log(this.noise);
+  }
+}
+
+module.exports = Pet;
