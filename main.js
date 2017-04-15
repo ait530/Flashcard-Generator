@@ -1,8 +1,11 @@
+var flashCards = require('./data.js');
 var inquirer = require('inquirer');
 var fs = require('fs');
-var key = require('./data.js');
-// recursion in inquirer see examples.
 
+var basicFlashCards = new BasicCard(flashCards.basicCards);
+// console.log(basicFlashCards);
+var clozeFlashCards = new ClozeCard(flashCards.clozeCards);
+// console.log(clozeFlashCards);
 
 var cmdInput = process.argv[2];
 getInput(cmdInput);
@@ -10,25 +13,42 @@ function getInput(cmdInput, args) {
     if (cmdInput) {
         switch (cmdInput) {
         case 'basic':
-            console.log("BASIC CARDS YAH");
-            basicCards();
+            // console.log("basic cards is running");
+            BasicCard();
             break;
         case 'cloze':
-            console.log('cloze is running');
-            // if (args) {
-            //     console.log(' Argument passed: ' + args);
-            //     clozeCards(args);
-            // }
+            // console.log('cloze cards is running');
+            ClozeCard();
         }
     }
 }
 
-// function runCommand() {
-//     fs.readFile('random.txt', 'utf-8', function (error, data) {
-//         var fileCommands = data.split(',');
-//         getInput(fileCommands[0], fileCommands[1]);
-//     });
-// }
+// BasicCard Constructor
+function BasicCard(front, back) {
+  this.front = front;
+  this.back = back;
+}
+console.log(BasicCard());
+
+
+// creates the printInfo method and applies it to all programmer objects
+BasicCard.prototype.printInfo = function() {
+  console.log("Front: " + this.front + "\nBack: " + this.back);
+};
+
+// ClozeCard Constructor
+function ClozeCard(front, back) {
+  this.front = front;
+  this.back = back;
+}
+console.log(ClozeCard());
+
+// creates the printInfo method and applies it to all programmer objects
+ClozeCard.prototype.printInfo = function() {
+  console.log("Front: " + this.front + "\nBack: " + this.back);
+};
+
+
 function logged() {
     // captures all command line inputs
     var inputs = process.argv.slice(2).join(" ");
@@ -47,27 +67,25 @@ function logged() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
+// Function for determining which command is executed
+var pick = function(caseData, functionData) {
+  switch (caseData) {
+    case "basic":
+     BasicCard();
+      break;
+    case "cloze":
+      ClozeCard();
+  }
+};
 
 // Function which takes in command line arguments and executes correct function accordigly
-// var runThis = function(argOne, argTwo) {
-//   pick(argOne, argTwo);
-// };
+var runThis = function(argOne, argTwo) {
+  pick(argOne, argTwo);
+};
 
-// // MAIN PROCESS
-// // =====================================
-// runThis(process.argv[2], process.argv[3]);
-
-
+// MAIN PROCESS
+// =====================================
+runThis(process.argv[2], process.argv[3]);
 
 
 
@@ -75,40 +93,3 @@ function logged() {
 
 
 
-
-
-
-
-// var basicQuestions = [];
-// var basicAnswers = [];
-
-// var clozeQuestions = [];
-// var clozeAnswers = [];
-
-// // BasicCard Constructor
-// function BasicCard(front, back) {
-//   this.front = front;
-//   this.back = back;
-// }
-
-
-
-
-// // ClozeCard Constructor
-// function ClozeCard(text, cloze) {
-//   this.text = text;
-//   this.cloze = cloze;
-// }
-
-
-// The full text. This is the entire sentence users need to remember: "George Washington was the first president of the United States."
-// The cloze deletion. This is the text we've chosen to remove: "George Washington".
-// The partial text. This is what we get if we remove the cloze deletion from the full text: "... was the first president of the United States.
-
-
-
-// data.js like the keys.js
-// export the data.js into the keys.js
-
-
-// basis.js  one with cloze.js
