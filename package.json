@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/ait530/Flashcard-Generator/issues"
   },
-  "homepage": "https://github.com/ait530/Flashcard-Generator#readme"
+  "homepage": "https://github.com/ait530/Flashcard-Generator#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "inquirer": "^3.0.6"
+  }
 }

@@ -1,6 +1,63 @@
+PsuedoCode:
+
+Need npm Inquirer
+  Need ('fs') runs text file command
+
+
+//Flip between question/answer of basic card
+node Command: 'node main.js basicCard'
+  process.argv[2]
+    var basic Card = basic Card {}
+      Properties: Front and Back
+        Front: Questions
+        Back: Answers
+          Data.js stores questions and answers
+            data {} 
+
+
+
+
+
+
+
+// Function for determining which command is executed
+var pick = function(caseData, functionData) {
+  switch (caseData) {
+    case "basic":
+      // console.log('BASIC');
+      basic();
+      break;
+    case "cloze":
+      cloze(functionData);
+      break;
+      // console.log('CLOZE');
+    default:
+      console.log("Invalid.");
+  }
+};
+pick();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 1. Create constructors for basic and cloze deleted flashcards.
 
-2. basic constructor should have front and back as arguments while cloze should have text and cloze.  
+2. Basic constructor should have front and back as arguments 
+Cloze should have text and cloze.  
 
 3. Need to seperate the 2 types of flashcards into two seperate sets and randomize each card.
 
@@ -16,8 +73,7 @@ console.log a variable
 then use a library to create an interface
 recursive callback
 
-
-TOOLS:
+2
 
 Review:
 /////////////////////////////////////////////////////////////////////////////////
