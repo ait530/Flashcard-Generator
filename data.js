@@ -9,4 +9,4 @@ exports.basicCards = {
 exports.clozeCards = {
   frontCardOne: '..., East, South, West.',
   backCardOne: 'North',
-}
+} 
