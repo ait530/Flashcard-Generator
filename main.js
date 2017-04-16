@@ -28,7 +28,7 @@ function BasicCard(front, back) {
   this.front = front;
   this.back = back;
 }
-console.log(BasicCard());
+console.log(new BasicCard());
 
 
 // creates the printInfo method and applies it to all programmer objects
@@ -41,7 +41,7 @@ function ClozeCard(front, back) {
   this.front = front;
   this.back = back;
 }
-console.log(ClozeCard());
+console.log(new ClozeCard());
 
 // creates the printInfo method and applies it to all programmer objects
 ClozeCard.prototype.printInfo = function() {
